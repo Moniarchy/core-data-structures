@@ -62,8 +62,7 @@ describe( 'Stack', () => {
   context( 'isEmpty()', () => {
     const pringles = new Stack()
 
-    it.only( 'returns true only if the stack is empty.', () => {
-      console.log( pringles.isEmpty())
+    it( 'returns true only if the stack is empty.', () => {
       expect( pringles.isEmpty()).to.be.true
     })
   })
