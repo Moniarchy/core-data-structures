@@ -24,7 +24,7 @@ export default class Stack {
   }
 
   length() {
-
+    return this.top
   }
 
   isEmpty() {

@@ -55,8 +55,7 @@ describe( 'Stack', () => {
     pringles.push( 'bar' )
 
     it( 'returns the length of the stack.', () => {
-      expect(() => pringles.length())
-        .to.equal( 2 )
+      expect( pringles.length()).to.equal( 2 )
     })
   })
   context( 'isEmpty()', () => {
