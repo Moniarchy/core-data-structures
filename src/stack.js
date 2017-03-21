@@ -28,8 +28,6 @@ export default class Stack {
   }
 
   isEmpty() {
-    if ( this.top === null ) {
-      return true
-    }
+    return this.top === null
   }
 }
