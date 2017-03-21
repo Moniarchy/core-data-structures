@@ -2,21 +2,69 @@ import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
 import Stack from '../src/stack'
 
-chai.use(chaiChange)
+chai.use( chaiChange )
 
-describe('Stack', () => {
+
+describe( 'Stack', () => {
   'use strict'
-
-  it('exists', () => {
-    expect(Stack).to.be.a('function')
+  it( 'exists', () => {
+    expect( Stack ).to.be.a( 'function' )
   })
 
-  context('push()', () => {
-    it('pushes an element to the top of the stack.', () => {
-      const myStack = new Stack()
+  context( 'push()', () => {
+    const pringles = new Stack()
 
-      expect(() => myStack.push('foo'))
-        .to.alter(() => myStack.length(), { from: 0, to: 1 })
+    it( 'pushes an element to the top of the stack.', () => {
+      expect(() => pringles.push( 'foo' ))
+        .to.include( 'foo' )
+    })
+    it( 'increases the length of the stack by 1.', () => {
+      expect(() => pringles.push( 'foo' ))
+        .to.alter(() => pringles.length(), { from: 0, to: 1 })
+    })
+  })
+
+  context( 'pop()', () => {
+    const pringles = new Stack()
+    pringles.push( 'foo' )
+    pringles.push( 'bar' )
+
+    it( 'decreases the length of the stack by 1.', () => {
+      expect(() => pringles.pop())
+        .to.alter(() => pringles.length(), { from: 2, to: 1 })
+    })
+    it( 'returns the element that was popped', () => {
+      expect(() => pringles.pop())
+        .to.equal( 'bar' )
+    })
+  })
+
+  context( 'peek()', () => {
+    const pringles = new Stack()
+    pringles.push( 'foo' )
+    pringles.push( 'bar' )
+
+    it( 'returns the last pushed element.', () => {
+      expect(() => pringles.peek())
+        .to.equal( 'bar' )
+    })
+  })
+  context( 'length()', () => {
+    const pringles = new Stack()
+    pringles.push( 'foo' )
+    pringles.push( 'bar' )
+
+    it( 'returns the length of the stack.', () => {
+      expect(() => pringles.length())
+        .to.equal( 2 )
+    })
+  })
+  context( 'isEmpty()', () => {
+    const pringles = new Stack()
+
+    it.only( 'returns true only if the stack is empty.', () => {
+      console.log( pringles.isEmpty())
+      expect( pringles.isEmpty()).to.be.true
     })
   })
 })
