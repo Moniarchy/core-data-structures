@@ -26,9 +26,14 @@ export default class Stack {
 }
 
   pop() {
-    //return this.top
-    //then update this.top
-    //decrement this.size
+    if ( this.size === 0 ) {
+      console.log( "This stack is already empty and cannot be emptied further." )
+    } else if ( this.size > 0 ) {
+      var nodeToBePopped = this.top.data
+      this.top = this.top.next
+      this.size--
+      return nodeToBePopped
+    }
   }
 
   peek() {

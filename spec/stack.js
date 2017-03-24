@@ -24,13 +24,14 @@ describe( 'Stack', () => {
     const pringles = new Stack()
     pringles.push( 'foo' )
     pringles.push( 'bar' )
+    pringles.push( 'banana' )
 
     it( 'decreases the length of the stack by 1.', () => {
       expect(() => pringles.pop())
-        .to.alter(() => pringles.length(), { from: 2, to: 1 })
+        .to.alter(() => pringles.length(), { from: 3, to: 2 })
     })
-    it( 'returns the element that was popped', () => {
-      expect(() => pringles.pop())
+    it( 'returns the element that was popped.', () => {
+      expect( pringles.pop())
         .to.equal( 'bar' )
     })
   })
