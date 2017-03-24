@@ -1,7 +1,7 @@
 'use strict'
 
 class Node {
-  constructor( data, next ) {
+  constructor( data ) {
     this.data = data
     this.next = null
   }
@@ -14,10 +14,16 @@ export default class Stack {
   }
 
   push( element ) {
-    this.top = new Node( element, Node )
-    //update this.top
-    //increment this.size
+    if ( this.size === 0 ) {
+      this.top = new Node( element )
+      this.size++
+    } else if ( this.size > 0 ) {
+      var newNode = new Node( element )
+      newNode.next = this.top
+      this.top = newNode
+      this.size++
   }
+}
 
   pop() {
     //return this.top

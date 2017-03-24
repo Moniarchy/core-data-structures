@@ -14,11 +14,7 @@ describe( 'Stack', () => {
   context( 'push()', () => {
     const pringles = new Stack()
 
-    it.only( 'pushes an element to the top of the stack.', () => {
-      expect(() => pringles.push( 'foo' ))
-        .to.include( 'foo' )
-    })
-    it.only( 'increases the length of the stack by 1.', () => {
+    it( 'increases the length of the stack by 1.', () => {
       expect(() => pringles.push( 'foo' ))
         .to.alter(() => pringles.length(), { from: 0, to: 1 })
     })
@@ -28,7 +24,6 @@ describe( 'Stack', () => {
     const pringles = new Stack()
     pringles.push( 'foo' )
     pringles.push( 'bar' )
-    console.log( pringles.top.next )
 
     it( 'decreases the length of the stack by 1.', () => {
       expect(() => pringles.pop())
